@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Prefijos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>       
+        <script>
+            function devuelvedatos() {
+                miventana = window.open("prefijos.html", "", "width=300,height=150,scrollbars=yes");
+                miventana.focus();
+            }
+
+            function redirigir() {
+                window.location.href = "https://www.google.es";
+            }
+        </script>
+        <form name="formulario">        
+            <table>
+                <thead>
+                    <tr>
+                        <td>Prefijo</td>
+                        <td>Numero</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="prefijo" value="+" /><button onclick="devuelvedatos()">?</button></td>
+                        <td><input type="text" name="numerotlf" value="" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <button name="redirigir" onclick="redirigir()">Redirigir</button>
+    </body>
+</html>

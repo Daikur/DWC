@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Prueba DOM</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function escribir() {
+                var texto = document.createTextNode(prompt("Escribe un texto: ", ""));
+                var parrafo = document.createElement("p");
+
+                parrafo.appendChild(texto);
+
+                document.body.appendChild(parrafo);
+            }
+
+            function nodo() {
+                var parrafo = document.createElement("p");
+                var nodo1 = document.createElement("div");
+                var nodo2 = document.createElement("div");
+                var nodo3 = document.createElement("div");
+
+                parrafo.appendChild(document.createTextNode("Nodo1"));
+                parrafo.id = "idParrafo";
+                nodo1.appendChild(parrafo);
+
+                nodo1.id="nodo1";
+                nodo2.id="nodo2";
+                nodo3.id="nodo3";
+                nodo2.appendChild(document.createTextNode("Nodo2"));
+                nodo3.appendChild(document.createTextNode("Nodo3"));
+
+                document.body.appendChild(nodo1);
+                nodo1.appendChild(nodo2);
+                nodo2.appendChild(nodo3);             
+
+                nodo2.appendChild(document.getElementById("idParrafo"));
+            }
+
+        </script>
+        <button name="parrafo" onclick="nodo()">Pulsa para escribir</button>
+
+    </body>
+</html>

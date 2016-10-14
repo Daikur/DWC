@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Exemple 1</title>
+    </head>
+    <body>
+        <h1>Tabla de Multiplicar</h1>
+        <script type="text/javascript">
+            function tablaMult(num)
+            {
+                for (var i = 0; i <= 10; i++) {
+                    resultado = num * i;
+                    mihtml += "<tr>";
+                    mihtml += "<td>" + num + " * " + i + " = " + resultado + "</td>";
+                    mihtml += "</tr>";
+                }
+            }
+        </script>
+
+        <script type="text/javascript">
+            <!--
+          var mihtml = "<table>";
+
+            var num = parseInt(prompt("Dime un numero: ", "Numero"));
+            document.write("<table>");
+            var resultado;
+            if (num != null) {
+                tablaMult(num);
+            }
+            document.write(mihtml);
+            //-->
+        </script>
+    </body>
+</html>

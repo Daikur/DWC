@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Carrito</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <script src="script.js"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="carrito.css" >
+        <input value="Vaciar Carrito" type="button"/>
+        <br>
+        <br>
+        <div>
+            <div id="art1" class="articulos articulos-item" onclick="carrito(id)">
+                <img src="http://product-images.www8-hp.com/digmedialib/prodimg/lowres/c04564547.png" width="300" height="300"/>
+                <p>Precio: 500 €</p>
+            </div>
+            <div id="art2" class="articulos articulos-item" onclick="carrito(id)">
+                <img src="http://h10003.www1.hp.com/digmedialib/prodimg/lowres/c03695623.png" width="300" height="300"/>
+                <p>Precio: 550 €</p>
+            </div>
+            <div id="art3" class="articulos articulos-item" onclick="carrito(id)">
+                <img src="https://images-eu.ssl-images-amazon.com/images/G/30/CE/Electronica/A_Content/HP/HP_Ordenador_porttil_HP_Pavilion_15n024ss_ENERGY_STAR_gallery_1.png" width="300" height="300"/>
+                <p>Precio: 600 €</p>
+            </div>
+            <div id="art4" class="articulos articulos-item" onclick="carrito(id)">
+                <img src="http://product-images.www8-hp.com/digmedialib/prodimg/lowres/c03838078.png" width="300" height="300" />
+                <p>Precio: 525 €</p>
+            </div>
+        </div>
+        <br>
+        <p id="precioFinal"><b>Precio Final: </b></p>
+        <div id="carrito">
+        </div>
+    </body>
+</html>

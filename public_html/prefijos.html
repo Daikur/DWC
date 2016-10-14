@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Prefijos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+    </head>
+    <body>
+        <script>
+            function prefijo(n) {
+                opener.document.formulario.prefijo.value = n;
+                window.close();
+            }
+        </script>        
+        <h1>Prefijos Internacionales</h1>
+        <form name="fprefijos">
+            España: <input type="button" value="+34" onclick="prefijo('+34')"/>
+            <br>
+            Holanda: <input type="button" value="+31" onclick="prefijo('+31')" />
+            <br>
+            Gran Bretaña <input type="button" value="+44" onclick="prefijo('+44')" />
+            <br>
+            Estados Unidos <input type="button" value="+01" onclick="prefijo('+01')" />
+            <br>
+            Bélgica <input type="button" value="+32" onclick="prefijo('+32')" />
+            <br>
+            Grecia <input type="button" value="+30" onclick="prefijo('+30')" />
+        </form>
+    </body>
+</html>

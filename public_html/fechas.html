@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Fecha</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            fecha = new Date();
+
+            dia = fecha.getDate();
+            diasemana = fecha.getDay();
+            mes = fecha.getMonth();
+            anyo = fecha.getFullYear();
+            var nombredia, nombremes;
+
+            switch (diasemana) {
+                case 0:
+                    nombredia = "Domingo";
+                    break;
+                case 1:
+                    nombredia = "Lunes";
+                    break;
+                case 2:
+                    nombredia = "Martes";
+                    break;
+                case 3:
+                    nombredia = "Miercoles";
+                    break;
+                case 4:
+                    nombredia = "Jueves";
+                    break;
+                case 5:
+                    nombredia = "Viernes";
+                    break;
+                case 6:
+                    nombredia = "Sabado";
+                    break;
+            }
+
+            switch (mes) {
+                case 0:
+                    nombremes = "Enero";
+                    break;
+                case 1:
+                    nombremes = "Febrero";
+                    break;
+                case 2:
+                    nombremes = "Marzo";
+                    break;
+                case 3:
+                    nombremes = "Abril";
+                    break;
+                case 4:
+                    nombremes = "Mayo";
+                    break;
+                case 5:
+                    nombremes = "Junio";
+                    break;
+                case 6:
+                    nombremes = "Julio";
+                    break;
+                case 7:
+                    nombremes = "Agosto";
+                    break;
+                case 8:
+                    nombremes = "Septiembre";
+                    break;
+                case 9:
+                    nombremes = "Octubre";
+                    break;
+                case 10:
+                    nombremes = "Noviembre";
+                    break;
+                case 11:
+                    nombremes = "Diciembre";
+                    break;
+            }
+            mihtml = "Hoy es " + nombredia + " " + dia + " de " + nombremes + " de " + anyo;
+
+            document.write(mihtml);
+
+        </script>
+    </body>
+</html>
