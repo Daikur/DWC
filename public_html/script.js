@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+precioFinal = 0;
+
 function carrito(articulo) {
     var nodoDiv;
     var nodoParrafo;
@@ -46,13 +48,10 @@ function carrito(articulo) {
         nodo1.replaceChild(nuevoPrecio, nodoParrafoPrecio);
 
 
+        //Precio Final
+        precioFinal += (parseInt(precio));
+        nodoPrecioFinal = document.getElementById("precioFinal").firstChild.nodeValue = "Precio Final: " + precioFinal + " €";
 
-        parrafoViejo = document.getElementById("precioFinal");
-        precioTexto = document.getElementById("precioFinal").firstChild.textContent;
-        precioFinal = precioTexto.split(" ")[2];
-
-        precioFinalNuevo = (parseInt(precioFinal)) + (parseInt(precio));
-        document.getElementById("precioFinal").firstChild.nodeValue = precioFinalNuevo;
 
     } else {
         nodoItem = document.createElement("div");
@@ -62,21 +61,29 @@ function carrito(articulo) {
 
         nodoItem.appendChild(imgCarrito);
 
+        //Precio Unidad
         var precioCarrito = document.createElement("p");
         nodoItem.appendChild(precioCarrito);
         precioCarrito.appendChild(document.createTextNode(nodoTexto.toString()));
 
+        //Unidades en carrito
         var cantidadCarrito = document.createElement("p");
         cantidadCarrito.setAttribute("id", "cantidad");
         nodoItem.appendChild(cantidadCarrito);
         cantidadCarrito.appendChild(document.createTextNode("Cantidad:1"));
 
+        //Precio Total
         var precioTotal = document.createElement("p");
         precioTotal.setAttribute("id", "precioTotal");
         precioTotal.appendChild(document.createTextNode("Precio Total: " + precio + " €"));
         nodoItem.appendChild(precioTotal);
 
-        var botonesCarrito = document.createElement("p");
+        //Precio Final
+        precioFinal += (parseInt(precio));
+        nodoPrecioFinal = document.getElementById("precioFinal").firstChild.nodeValue = "Precio Final: " + precioFinal + " €";
+
+        //Botones
+        var botonesCarrito = document.createElement("div");
         botonesCarrito.setAttribute("id", "botones_carrito");
         nodoItem.appendChild(botonesCarrito);
 
@@ -94,9 +101,6 @@ function carrito(articulo) {
 
         botonesCarrito.appendChild(botonRestarUnidades);
         botonesCarrito.appendChild(botonBorrarElemento);
-
-        precioFinal = document.getElementById("precioFinal").firstChild;
-        precioFinal.appendChild(document.createTextNode(precio + " €"));
     }
 }
 function restar(nodo) {
@@ -108,30 +112,45 @@ function restar(nodo) {
     nodo1 = nodo.parentNode;
     nodoPadre = nodo1.parentNode;
 
+    var nuevoP = document.createElement("p");
+    nuevoP.setAttribute("id", "cantidad");
+
+    var precioTotalProvisional;
+    var precioTotal;
+
+    var nuevoPrecioTotal = document.createElement("p");
+    nuevoPrecioTotal.setAttribute("id", "precioTotal");
+
+    var nodoViejo = nodoPadre.childNodes[3];
+    
     if (numeroCantidad < 1) {
-        nodoPadre.parentNode.removeChild(nodoPadre);
+        borrar(nodo);
     } else {
-        var nuevoP = document.createElement("p");
-        nuevoP.setAttribute("id", "cantidad");
         nuevoP.appendChild(document.createTextNode("Cantidad:" + numeroCantidad));
         nodoPadre.replaceChild(nuevoP, nodoPaso);
 
+        precioTotalProvisional = nodoViejo.firstChild.nodeValue.toString().split(" ")[2];
+        precioTotal = ((parseInt(precioTotalProvisional)) - (parseInt(precioBase)));
 
-        var precioTotalProvisional = nodoItem.childNodes[3].firstChild.nodeValue.toString().split(" ")[2];
-        var precioTotal = ((parseInt(precioTotalProvisional)) - (parseInt(precioBase)));
+        nuevoPrecioTotal.appendChild(document.createTextNode("Precio Total: " + precioTotal + " €"));      
+        nodoViejo.firstChild.nodeValue="Precio Total: " + precioTotal + "€";
 
-        var nuevoPrecioTotal = document.createElement("p");
-        nuevoPrecioTotal.setAttribute("id", "precioTotal");
-        nuevoPrecioTotal.appendChild(document.createTextNode("Precio Total: " + precioTotal + " €"));
-        
-        var nodoViejo = nodoItem.childNodes[3];
-        
-        nodoPadre.replaceChild(nuevoPrecioTotal,nodoViejo);
+        //Precio Final
+        precioUnidadTotal = nodo1.previousSibling.firstChild.nodeValue.toString().split(" ")[2];
+        precioFinal -= ((parseInt(precioBase)));
+        nodoPrecioFinal = document.getElementById("precioFinal").firstChild.nodeValue = "Precio Final: " + precioFinal + " €";
     }
 }
 
 function borrar(nodo) {
     nodo1 = nodo.parentNode;
+    precioUnidadTotal = nodo1.previousSibling.firstChild.nodeValue.toString().split(" ")[2];
+
     nodoPadre = nodo1.parentNode;
     nodoPadre.parentNode.removeChild(nodoPadre);
+
+    //Precio Final
+    precioFinal -= (parseInt(precioUnidadTotal));
+    nodoPrecioFinal = document.getElementById("precioFinal").firstChild.nodeValue = "Precio Final: " + precioFinal + " €";
+
 }
